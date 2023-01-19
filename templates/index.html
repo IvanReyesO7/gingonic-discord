@@ -23,25 +23,25 @@
       Send a request
     </div>
     <div class="card-body">
-      <form>
+      <form onsubmit="return false">
         <div class="form-group">
           <label for="InputWebHookUrl">WebHook URL</label>
-          <input class="form-control" id="InputWebHookUrl" placeholder="https://discord.com/api/webhooks/xxxxxx/xxxxx">
+          <input class="form-control" id="InputWebHookUrl" placeholder="https://discord.com/api/webhooks/xxxxxx/xxxxx" required>
           <small id="emailHelp" class="form-text text-muted">Do not share it with anyone else.</small>
         </div>
         <div class="form-group">
           <label for="InputUsername">Username</label>
-          <input class="form-control" id="InputUsername" placeholder="Username">
+          <input class="form-control" id="InputUsername" placeholder="Username" required>
         </div>
         <div class="form-group">
           <label for="InputContent">Content</label>
-          <input class="form-control" id="InputContent" placeholder="Content">
+          <input class="form-control" id="InputContent" placeholder="Content" required>
         </div>
         <div class="form-group">
           <label for="InputAvatarUrl">Avatar url</label>
           <input class="form-control" id="InputAvatarUrl" placeholder="AvatarUrl">
         </div>
-        <button id="send-request-btn" type='button' style="background-color: #5865F2; color: white;" class="btn">Send!</button>
+        <button id="send-request-btn" type='submit' style="background-color: #5865F2; color: white;" class="btn">Send!</button>
       </form>
     </div>
   </div>
