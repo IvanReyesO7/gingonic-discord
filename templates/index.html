@@ -18,7 +18,8 @@
       <span style="font-family: 'Roboto', sans-serif; color: white;"><strong>WebHook Poster</strong></span>
     </div>
   </nav>
-  <div class="card">
+  <div class="content d-flex">
+    <div class="card" style="width: 50%;">
     <div class="card-header">
       Send a request
     </div>
@@ -43,6 +44,27 @@
         </div>
         <button id="send-request-btn" type='submit' style="background-color: #5865F2; color: white;" class="btn">Send!</button>
       </form>
+    </div>
+    </div>
+    <div class="card" style="width: 50%;">
+      <div class="card-header">
+        Preview
+      </div>
+      <div class="card-body">
+        <div style="background-color: #35393E;">
+          <div class="d-flex" style="padding: 10px; align-items: center;">
+            <img src="https://as2.ftcdn.net/v2/jpg/00/65/77/27/1000_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg" style="width: 40px;height: 40px; border-radius: 50%; margin-right: 20px;">
+            <div>
+              <div class="d-flex" style="align-items: flex-end;">
+                <span style="font-size: 1rem; font-weight: 500; color: white; margin-right: 3px;">Username</span>
+                <span class="badge badge-secondary" style="line-height: .9375rem;font-weight: 500;background-color: #5764F2;">BOT</span>
+                <span style="margin-left: 0.25rem;height: 1.25rem;color: #A3A6AA;font-size: 0.7rem;">Today at <span id='date-time'></span></span>
+              </div>
+              <span style="font-size: 1rem; color: white;">Content</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </body>

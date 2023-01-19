@@ -2,13 +2,12 @@ package discord
 
 import (
 	"fmt"
-	"io/ioutil"
 	"net/http"
 	"net/url"
 	"time"
 )
 
-func PostToDiscordWebHook(wenhook_url string, params map[string]string) {
+func PostToDiscordWebHook(webhook_url string, params map[string]string) string {
 	cli := &http.Client{Timeout: time.Duration(30) * time.Second}
 	values := url.Values{}
 
@@ -16,14 +15,14 @@ func PostToDiscordWebHook(wenhook_url string, params map[string]string) {
 		values.Add(key, element)
 	}
 
-	rsp, err := cli.PostForm(wenhook_url, values)
+	rsp, err := cli.PostForm(webhook_url, values)
 	if err != nil {
-		fmt.Println(err)
-		return
+		return err.Error()
+	} else if rsp.StatusCode != 204 {
+		return rsp.Status
 	}
 
+	fmt.Println(rsp.Status)
 	defer rsp.Body.Close()
-
-	body, _ := ioutil.ReadAll(rsp.Body)
-	fmt.Println(string(body))
+	return ""
 }

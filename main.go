@@ -26,9 +26,9 @@ func main() {
 		Discord.PostToDiscordWebHook(webhook_url, params)
 	})
 
-	server.GET("/index", func(c *gin.Context) {
+	server.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", gin.H{})
 	})
 
-	server.Run(":8000") // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
+	server.Run(":8080") // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
 }

@@ -1,4 +1,5 @@
-console.log("Loaded")
+var time = new Date();
+$('#date-time').text(`${time.getHours()}:${time.getMinutes()}`);
 $('#send-request-btn').click(function() {
 
   let webhook_url = $("#InputWebHookUrl").val();
