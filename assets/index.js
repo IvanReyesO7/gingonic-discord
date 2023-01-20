@@ -5,21 +5,31 @@ function loadTime () {
 
 function sendRequest() {
  $('#send-request-btn').click(function() {
+  document.cookie = "session" + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
   let webhook_url = $("#InputWebHookUrl").val();
   let username =    $("#InputUsername").val();
   let content =     $('#InputContent').val();
   let avatar_url =  $('#InputAvatarUrl').val();
 
-  $.post( "/post-to-webhook",
-  {
-    webhook_url: webhook_url,
-    username: username,
-    content: content,
-    avatar_url: avatar_url
-  },
-  "json"
-  );
+  $.ajax({
+    type: "POST",
+    async: false,
+    url: "/post-to-webhook",
+    data: {
+      webhook_url: webhook_url,
+      username: username,
+      content: content,
+      avatar_url: avatar_url
+    },
+    success: function(result) {
+      console.log("data, textStatus, XmlHttpRequest")
+    },
+    error: function(XMLHttpRequest, textStatus, errorThrown){
+      location.reload();
+    },
+    dataType: "json"
+  });
  });
 }
 
@@ -39,11 +49,8 @@ function loadSubmitBtn () {
       } else {
         return;
       }
-    })
+    });
   })
-
-  
-  
 } 
 
 function loadFormItemsIntoPreview() {
@@ -67,8 +74,14 @@ function loadFormItemsIntoPreview() {
   })
 }
 
+function resetCookiesOnReload() {
+  $(window).on('load', function(){
+    document.cookie = "session" + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  });
+}
+
+resetCookiesOnReload();
 loadTime();
 loadSubmitBtn();
 loadFormItemsIntoPreview();
 sendRequest();
-
