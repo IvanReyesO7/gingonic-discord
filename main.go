@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 
-	Discord "./discord"
+	Discord "gingonic-discord/discord"
 
 	"github.com/gin-gonic/gin"
 )
