@@ -36,7 +36,7 @@ func main() {
 			fmt.Println(response)
 			session.AddFlash(response)
 			session.Save()
-			c.JSON(http.StatusInternalServerError, "")
+			c.JSON(http.StatusNotFound, "")
 		} else {
 			c.JSON(http.StatusOK, "")
 		}

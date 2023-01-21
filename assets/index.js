@@ -24,8 +24,11 @@ function sendRequest() {
     },
     success: function(result) {
       console.log("data, textStatus, XmlHttpRequest")
+      $('#alert-danger').hide();
+      $('#alert-success').show();
     },
     error: function(XMLHttpRequest, textStatus, errorThrown){
+      $('#alert-success').hide();
       location.reload();
     },
     dataType: "json"
